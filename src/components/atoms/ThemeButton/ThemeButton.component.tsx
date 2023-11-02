@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { IconDark, IconLight } from '../Icons';
 import useTheme from '../../../hooks';
 
@@ -9,6 +9,12 @@ type ThemeButtonProps = {
 const ThemeButton: FC<ThemeButtonProps> = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { handleChangeTheme } = useTheme();
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDarkMode(true);
+    }
+  }, []);
 
   const handleClick = () => {
     setIsDarkMode(!isDarkMode);
