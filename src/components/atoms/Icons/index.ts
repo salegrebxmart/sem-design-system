@@ -10,3 +10,5 @@ export { default as IconPower } from './IconPower.component';
 export { default as IconHelp } from './IconHelp.component';
 export { default as IconNotification } from './IconNotification.component';
 export { default as IconCalendar } from './IconCalendar.component';
+export { default as IconEye } from './IconEye.component';
+export { default as IconEyeSlash } from './IconEyeSlash.component';

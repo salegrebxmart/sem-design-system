@@ -6,7 +6,7 @@ export enum Color {
 
 interface CardProps {
   color?: Color;
-  children: string | JSX.Element;
+  children: JSX.Element | JSX.Element[] | string;
 }
 
 const Card: FC<CardProps> = ({ color = Color.White, children }) => {

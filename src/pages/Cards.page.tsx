@@ -1,5 +1,4 @@
 import Card from '../components/atoms/Card';
-import ThemeButton from '../components/atoms/ThemeButton';
 import CardGrid from '../layout';
 
 function Cards() {
