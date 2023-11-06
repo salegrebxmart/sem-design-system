@@ -3,15 +3,18 @@ import { IconEye, IconEyeSlash } from '../Icons';
 interface InputProps {
   label: string;
   type?: 'text' | 'password';
+  name?: string;
+  placeholder?: string;
   helperText?: string;
   errorText?: string;
   onInputChange?: (value: string) => void;
   onBlur?: () => void;
   help?: boolean;
   error?: boolean;
+  required?: boolean;
 }
 
-const Input: FC<InputProps> = ({ label, type = 'text', helperText, errorText, onInputChange, onBlur, error = false, help = false }) => {
+const Input: FC<InputProps> = ({ label, type = 'text', name, placeholder, helperText, errorText, onInputChange, onBlur, error = false, help = false, required = false }) => {
   const [value, setValue] = useState('');
   const [inputType, setInputType] = useState(type);
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
@@ -19,7 +22,7 @@ const Input: FC<InputProps> = ({ label, type = 'text', helperText, errorText, on
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     if (!!onInputChange) {
-      onInputChange(value);
+      onInputChange(event.target.value);
     }
   };
 
@@ -41,21 +44,23 @@ const Input: FC<InputProps> = ({ label, type = 'text', helperText, errorText, on
     ' ' +
     (type === 'password' ? passwordStyle : textStyle) +
     ' ' +
-    (error && 'border border-red-400');
+    (error && 'border border-red-500 dark:border-red-400');
   return (
     <>
       <div className='relative flex flex-col w-full'>
-        <label className='text-sm font-medium text-slate-600 mb-2 dark:text-slate-300'>{label}</label>
+        <label htmlFor={name} className='text-sm font-medium text-slate-600 mb-2 dark:text-slate-300'>
+          {label}
+        </label>
         <div className='relative flex flex-row-reverse'>
           {type === 'password' && (
             <button onClick={handlePasswordClick} className='absolute py-2.5 sm:py-1.5 pr-2 opacity-40 hover:opacity-100'>
-              {passwordIsVisible ? <IconEyeSlash /> : <IconEye />}
+              {passwordIsVisible ? <IconEyeSlash className='text-slate-500 dark:text-slate-300' /> : <IconEye className='text-slate-500 dark:text-slate-300' />}
             </button>
           )}
-          <input id='test' className={inputStyle} type={inputType} value={value} onChange={handleChange} onBlur={onBlur}></input>
+          <input required={required} name={name} placeholder={placeholder} className={inputStyle} type={inputType} value={value} onChange={handleChange} onBlur={onBlur}></input>
         </div>
         {!error && help && <span className='absolute bottom-0 text-sm text-slate-400 mb-2'>{helperText ? helperText : ''}</span>}
-        {error && <span className='absolute bottom-0 text-sm text-red-500 mb-2'>{errorText ? errorText : 'Compruebe el campo'}</span>}
+        {error && <span className='absolute bottom-0 text-sm text-red-500 dark:text-red-400 mb-2'>{errorText ? errorText : 'Compruebe el campo'}</span>}
       </div>
     </>
   );
