@@ -12,3 +12,4 @@ export { default as IconNotification } from './IconNotification.component';
 export { default as IconCalendar } from './IconCalendar.component';
 export { default as IconEye } from './IconEye.component';
 export { default as IconEyeSlash } from './IconEyeSlash.component';
+export { default as IconClose } from './IconClose.component';

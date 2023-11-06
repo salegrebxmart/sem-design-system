@@ -14,12 +14,13 @@ interface SelectProps {
   help?: boolean;
   error?: boolean;
   required?: boolean;
+  altColor?: boolean;
 }
 
-const Select: FC<SelectProps> = ({ label, name, options = [], onInputChange, onBlur, helperText, errorText, help = false, error = false, required }) => {
+const Select: FC<SelectProps> = ({ label, name, options = [], onInputChange, onBlur, helperText, errorText, help = false, error = false, required, altColor = false }) => {
   const [value, setValue] = useState('');
-  const inputStyle =
-    'w-full h-9 sm:h-7 rounded text-slate-500 bg-slate-100 dark:bg-slate-900 dark:text-slate-300 mb-8 text-base sm:text-sm px-1' + ' ' + (error && 'border border-red-500 dark:border-red-400');
+  const selectColor = altColor ? 'bg-green-400 text-green-950 font-medium' : 'bg-slate-100 dark:bg-slate-900 dark:text-slate-300';
+  const selectStyle = selectColor + ' ' + 'w-full h-9 sm:h-7 rounded text-slate-500 mb-8 text-base sm:text-sm px-1' + ' ' + (error && 'border border-red-500 dark:border-red-400');
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(event.target.value);
@@ -35,12 +36,12 @@ const Select: FC<SelectProps> = ({ label, name, options = [], onInputChange, onB
       </label>
 
       <div className='relative flex flex-col w-full'>
-        <select required={required} className={inputStyle} name={name} value={value} onChange={handleChange} onBlur={onBlur}>
+        <select required={required} className={selectStyle} name={name} value={value} onChange={handleChange} onBlur={onBlur}>
           <option value=''>Escoge una opción...</option>
 
           {options.map((item) => {
             return (
-              <option key={item.id} value={item.value}>
+              <option className='hover:bg-red-200' key={item.id} value={item.value}>
                 {item.value}
               </option>
             );

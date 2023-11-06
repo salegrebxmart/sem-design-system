@@ -8,9 +8,10 @@ export type TabsOptions = {
 interface TabsProps {
   options: TabsOptions[];
   onChangeTab?: (index: number) => void;
+  className?: string;
 }
 
-const Tabs: FC<TabsProps> = ({ options, onChangeTab }) => {
+const Tabs: FC<TabsProps> = ({ options, onChangeTab, className }) => {
   const [selected, setSelected] = useState(0);
 
   const handleChange = (index: number) => {
@@ -18,16 +19,16 @@ const Tabs: FC<TabsProps> = ({ options, onChangeTab }) => {
     !!onChangeTab && onChangeTab(index);
   };
   return (
-    <div className='flex'>
+    <div className={'flex' + ' ' + className}>
       {options.map((item, index) => {
-        let style = 'min-w-[7.5rem] h-7 font-medium px-6 duration-100';
+        let style = 'min-w-[7.5rem] h-7 font-medium px-6 duration-100 border-l border-slate-200 dark:border-slate-800';
         if (index === selected) {
           style += ' ' + 'bg-cyan-900 text-green-400';
         } else {
-          style += ' ' + 'bg-slate-100 text-slate-500 hover:bg-slate-200';
+          style += ' ' + 'bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-900';
         }
         if (index === 0) {
-          style += ' ' + 'rounded-s-md';
+          style += ' ' + 'rounded-s-md border-none';
         }
         if (index === options.length - 1) {
           style += ' ' + 'rounded-e-md';
