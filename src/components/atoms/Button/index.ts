@@ -1,1 +1,1 @@
-export { default, Icon, Variant } from './Button.component.tsx';
+export { default, Variant } from './Button.component.tsx';

@@ -1,27 +1,26 @@
-import Button, { Icon, Variant } from '../components/atoms/Button';
-import Card from '../components/atoms/Card';
+import Button, { Variant } from '../components/atoms/Button';
+import { IconCalendar, IconDelete, IconEdit, IconHelp, IconMinus, IconNotification, IconPlus, IconPower, IconRefresh } from '../components/atoms/Icons';
 import ThemeButton from '../components/atoms/ThemeButton';
 import ToolButton from '../components/atoms/ToolButton';
-import { ToolIcon } from '../components/atoms/ToolButton/ToolButton.component';
 
 const ButtonRow = ({ variant = Variant.Primary }: { variant?: Variant }) => {
   return (
     <>
       <Button variant={variant}>Aceptar</Button>
-      <Button variant={variant} icon={Icon.Edit}>
+      <Button variant={variant} icon={<IconEdit />}>
         Editar
       </Button>
-      <Button variant={variant} iconOnly icon={Icon.Plus} />
-      <Button variant={variant} iconOnly icon={Icon.Minus} />
-      <Button variant={variant} iconOnly icon={Icon.Power} />
+      <Button variant={variant} iconOnly icon={<IconPlus />} />
+      <Button variant={variant} iconOnly icon={<IconMinus />} />
+      <Button variant={variant} iconOnly icon={<IconPower />} />
       <Button variant={variant} iconOnly loading />
-      <Button variant={variant} disabled icon={Icon.Delete}>
+      <Button variant={variant} disabled icon={<IconDelete />}>
         Eliminar
       </Button>
       <Button variant={variant} fullWidth>
         Botón ancho
       </Button>
-      <Button variant={variant} fullWidth icon={Icon.Refresh}>
+      <Button variant={variant} fullWidth icon={<IconRefresh />}>
         Botón ancho con icono
       </Button>
     </>
@@ -97,9 +96,9 @@ function Buttons() {
       <section className='mb-8'>
         <h2 className='text-base text-slate-500 dark:text-slate-300 mb-3'>Tool Buttons</h2>
         <div className='flex gap-2'>
-          <ToolButton icon={ToolIcon.Help} />
-          <ToolButton icon={ToolIcon.Notification} />
-          <ToolButton icon={ToolIcon.Calendar} />
+          <ToolButton icon={<IconHelp />} />
+          <ToolButton icon={<IconNotification />} />
+          <ToolButton icon={<IconCalendar />} />
           <ThemeButton />
         </div>
       </section>

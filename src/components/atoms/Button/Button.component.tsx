@@ -1,35 +1,11 @@
 import { FC, ReactNode } from 'react';
-import { IconDelete, IconEdit, IconLoading, IconMinus, IconPlus, IconPower, IconRefresh } from '../Icons';
-
-export enum Icon {
-  Refresh = 'refresh',
-  Delete = 'delete',
-  Plus = 'plus',
-  Minus = 'minus',
-  Edit = 'edit',
-  Power = 'power',
-  None = 'none',
-}
+import { IconLoading } from '../Icons';
 
 export enum Variant {
   Primary = 'primary',
   Secondary = 'secondary',
   Terciary = 'terciary',
 }
-
-type iconsT = {
-  [clave: string]: JSX.Element;
-};
-
-const icons: iconsT = {
-  refresh: <IconRefresh />,
-  delete: <IconDelete />,
-  loading: <IconLoading />,
-  plus: <IconPlus />,
-  minus: <IconMinus />,
-  edit: <IconEdit />,
-  power: <IconPower />,
-};
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset';
@@ -39,7 +15,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   disabled?: boolean;
   loading?: boolean;
   variant?: Variant;
-  icon?: Icon;
+  icon?: JSX.Element;
   iconOnly?: boolean;
 }
 
@@ -78,7 +54,7 @@ function getStyle(loading: boolean, iconOnly: boolean, disabled: boolean, varian
   );
 }
 
-const Button: FC<ButtonProps> = ({ type = 'button', children, onClick, disabled = false, loading = false, variant = 'primary', fullWidth = false, icon = 'none', iconOnly = false }) => {
+const Button: FC<ButtonProps> = ({ type = 'button', children, onClick, disabled = false, loading = false, variant = 'primary', fullWidth = false, icon, iconOnly = false }) => {
   const buttonStyle = getStyle(loading, iconOnly, disabled, variant);
 
   return (
@@ -86,14 +62,14 @@ const Button: FC<ButtonProps> = ({ type = 'button', children, onClick, disabled 
       {loading ? (
         <button disabled className={fullWidth ? 'w-full' : 'w-auto' + ' ' + 'flex justify-center items-center'}>
           <div className={buttonStyle}>
-            <div className='animate-spin text-xl'>{icons.loading}</div>
+            <div className='animate-spin text-xl'>{<IconLoading />}</div>
             {icon && iconOnly ? '' : <span className='hidden'>{children}</span>}
           </div>
         </button>
       ) : (
         <button type={type} disabled={disabled} onClick={onClick} className={fullWidth ? 'w-full' : 'w-auto' + ' ' + 'flex flex-shrink-0 items-center justify-center'}>
           <div className={buttonStyle}>
-            {icon ? icons[icon] : null}
+            {icon ? icon : null}
             {icon && iconOnly ? '' : children}
           </div>
         </button>
