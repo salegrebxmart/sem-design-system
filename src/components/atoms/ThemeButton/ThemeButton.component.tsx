@@ -21,9 +21,9 @@ const ThemeButton: FC<ThemeButtonProps> = ({ className }) => {
     handleChangeTheme();
   };
 
-  const colorButton = 'bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-200';
-  const styleButton = 'group p-2 rounded-lg hover:bg-slate-300 duration-100 active:scale-90';
-  const styleIcon = 'w-6 h-6 scale-100 duration-100 group-hover:scale-110';
+  const colorButton = 'bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-900';
+  const styleButton = 'flex items-center justify-center rounded-lg hover:bg-slate-300 duration-100 active:scale-90';
+  const styleIcon = 'w-8 h-8 p-1.5';
 
   return (
     <button onClick={handleClick} className={colorButton + ' ' + styleButton + ' ' + className}>
