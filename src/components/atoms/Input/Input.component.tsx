@@ -53,8 +53,8 @@ const Input: FC<InputProps> = ({ label, type = 'text', name, placeholder, helper
         </label>
         <div className='relative flex flex-row-reverse'>
           {type === 'password' && (
-            <button onClick={handlePasswordClick} className='absolute py-2.5 sm:py-1.5 pr-2 opacity-40 hover:opacity-100'>
-              {passwordIsVisible ? <IconEyeSlash className='text-slate-500 dark:text-slate-300' /> : <IconEye className='text-slate-500 dark:text-slate-300' />}
+            <button onClick={handlePasswordClick} className='absolute py-2.5 sm:py-1.5 pr-2 opacity-60 hover:opacity-100'>
+              {passwordIsVisible ? <IconEyeSlash className='text-slate-400' /> : <IconEye className='text-slate-400' />}
             </button>
           )}
           <input required={required} name={name} placeholder={placeholder} className={inputStyle} type={inputType} value={value} onChange={handleChange} onBlur={onBlur}></input>

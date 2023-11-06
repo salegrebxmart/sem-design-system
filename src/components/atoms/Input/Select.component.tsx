@@ -1,9 +1,12 @@
 import { FC, useState } from 'react';
-
+export type SelectOptions = {
+  id: number;
+  value: string;
+};
 interface SelectProps {
   label: string;
   name?: string;
-  options: { id: number; value: string }[];
+  options: SelectOptions[];
   helperText?: string;
   errorText?: string;
   onInputChange?: (value: string) => void;
