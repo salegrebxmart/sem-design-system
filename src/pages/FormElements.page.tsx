@@ -4,6 +4,7 @@ import { Checkbox, Input, Select, SelectOptions } from '../components/atoms/Form
 import Tabs, { TabsOptions } from '../components/atoms/Tabs';
 import RadioGroup, { RadioOption } from '../components/molecules/RadioGroup';
 import TagsGroup from '../components/molecules/TagsGroup';
+import Avatar from '../components/atoms/Avatar';
 
 function FormElements() {
   const options: SelectOptions[] = [
@@ -55,6 +56,7 @@ function FormElements() {
     <section>
       <h2 className='text-base text-slate-500 dark:text-slate-300 mb-3'>Form elements</h2>
       <Card>
+        <Avatar className='mb-6' size='lg' />
         <Input placeholder='Inserte un nombre' label='Compañía' />
         <Input label='Nombre' help helperText='El nombre debe tener al menos tres caracteres' errorText='El nombre debe tener al menos tres caracteres.' />
         <Input label='Apellidos' error />
