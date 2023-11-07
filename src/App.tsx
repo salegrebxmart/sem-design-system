@@ -1,8 +1,4 @@
 import './App.css';
-import Button from './components/atoms/Button';
-import Card from './components/atoms/Card';
-import { IconDelete } from './components/atoms/Icons';
-import Table from './components/atoms/Table';
 import ThemeButton from './components/atoms/ThemeButton';
 import { H1, H2, H3 } from './components/atoms/Titles';
 import { Buttons, Cards, FormElements, Tables } from './pages';

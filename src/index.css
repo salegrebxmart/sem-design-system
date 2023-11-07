@@ -7,3 +7,26 @@
     -webkit-appearance:none; 
     appearance:none;
 } */
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #E2E8F0;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d0d6dd;
+}
