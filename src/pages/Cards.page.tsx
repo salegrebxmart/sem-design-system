@@ -61,12 +61,8 @@ function Cards() {
         <Card>
           <DeviceCardContent />
         </Card>
-        <Card>
-          <DeviceCardContent />
-        </Card>
-        <Card>
-          <DeviceCardContent />
-        </Card>
+        <Card color='green'> </Card>
+        <Card color='gray'> </Card>
       </CardGrid>
     </div>
   );

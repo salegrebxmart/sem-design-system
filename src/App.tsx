@@ -1,6 +1,11 @@
 import './App.css';
+import Button from './components/atoms/Button';
+import Card from './components/atoms/Card';
+import { IconDelete } from './components/atoms/Icons';
+import Table from './components/atoms/Table';
 import ThemeButton from './components/atoms/ThemeButton';
-import { Buttons, Cards, FormElements } from './pages';
+import { H1, H2, H3 } from './components/atoms/Titles';
+import { Buttons, Cards, FormElements, Tables } from './pages';
 
 function App() {
   return (
@@ -11,9 +16,15 @@ function App() {
             <h1 className='text-lg text-slate-500 dark:text-slate-300 font-medium'>SEM Components</h1>
             <ThemeButton />
           </header>
-          {/* <Buttons />
-          <Cards /> */}
+          <Buttons />
+          <Cards />
           <FormElements />
+          <div className='pt-12'>
+            <H1>Titular 01</H1>
+            <H2>Titular 02</H2>
+            <H3>Titular 03</H3>
+          </div>
+          <Tables />
         </div>
       </main>
     </>
