@@ -60,7 +60,7 @@ const Button: FC<ButtonProps> = ({ type = 'button', children, onClick, disabled 
   return (
     <>
       {loading ? (
-        <button disabled className={fullWidth ? 'w-full' : 'w-auto' + ' ' + 'flex justify-center items-center'}>
+        <button disabled className={(fullWidth ? 'w-full' : 'w-auto') + ' ' + 'flex justify-center items-center'}>
           <div className={buttonStyle}>
             <div className='animate-spin text-xl'>{<IconLoading />}</div>
             {icon && iconOnly ? '' : <span className='hidden'>{children}</span>}

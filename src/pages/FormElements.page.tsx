@@ -1,11 +1,11 @@
 import Card from '../components/atoms/Card';
 import { IconDelete, IconPlus } from '../components/atoms/Icons';
-import { Checkbox, Input, Radio, Select, SelectOptions } from '../components/atoms/FormElements';
+import { Checkbox, Input, Select, SelectOptions } from '../components/atoms/FormElements';
 import Tabs, { TabsOptions } from '../components/atoms/Tabs';
 import RadioGroup, { RadioOption } from '../components/molecules/RadioGroup';
 import TagsGroup from '../components/molecules/TagsGroup';
 
-function Inputs() {
+function FormElements() {
   const options: SelectOptions[] = [
     { id: 1, value: 'Calentador' },
     { id: 2, value: 'Ventilador' },
@@ -53,7 +53,7 @@ function Inputs() {
 
   return (
     <section>
-      <h2 className='text-base text-slate-500 dark:text-slate-300 mb-3'>Inputs</h2>
+      <h2 className='text-base text-slate-500 dark:text-slate-300 mb-3'>Form elements</h2>
       <Card>
         <Input placeholder='Inserte un nombre' label='Compañía' />
         <Input label='Nombre' help helperText='El nombre debe tener al menos tres caracteres' errorText='El nombre debe tener al menos tres caracteres.' />
@@ -72,4 +72,4 @@ function Inputs() {
   );
 }
 
-export default Inputs;
+export default FormElements;

@@ -19,19 +19,19 @@ const Tabs: FC<TabsProps> = ({ options, onChangeTab, className }) => {
     !!onChangeTab && onChangeTab(index);
   };
   return (
-    <div className={'flex' + ' ' + className}>
+    <div className={'flex flex-col sm:flex-row' + ' ' + className}>
       {options.map((item, index) => {
-        let style = 'min-w-[7.5rem] h-7 font-medium px-6 duration-100 border-l border-slate-200 dark:border-slate-800';
+        let style = 'min-w-[7.5rem] h-9 sm:h-7 font-medium px-6 duration-100 border-b sm:border-l sm:border-b-0 border-slate-200 dark:border-slate-800 truncate ';
         if (index === selected) {
           style += ' ' + 'bg-cyan-900 text-green-400';
         } else {
-          style += ' ' + 'bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-900';
+          style += ' ' + 'bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-900/75';
         }
         if (index === 0) {
-          style += ' ' + 'rounded-s-md border-none';
+          style += ' ' + 'rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md border-none';
         }
         if (index === options.length - 1) {
-          style += ' ' + 'rounded-e-md';
+          style += ' ' + 'rounded-bl-md rounded-br-md sm:rounded-bl-none sm:rounded-tr-md';
         }
         return (
           <button disabled={selected === index} key={index} className={style} onClick={() => handleChange(index)}>

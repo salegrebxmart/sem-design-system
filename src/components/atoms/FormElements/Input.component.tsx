@@ -40,11 +40,13 @@ const Input: FC<InputProps> = ({ label, type = 'text', name, placeholder, helper
   const textStyle = 'text-base sm:text-sm p-2';
   const passwordStyle = !passwordIsVisible ? 'text-xl pb-1 pl-2 tracking-wider' : 'text-base sm:text-sm p-2';
   const inputStyle =
-    'w-full h-9 sm:h-7 rounded text-slate-500 bg-slate-100 dark:bg-slate-900 dark:text-slate-300 mb-8' +
+    'w-full h-9 sm:h-7 rounded text-slate-500 bg-slate-100 dark:bg-slate-900 dark:text-slate-300' +
     ' ' +
     (type === 'password' ? passwordStyle : textStyle) +
     ' ' +
-    (error && 'border border-red-500 dark:border-red-400');
+    (error && 'border border-red-500 dark:border-red-400') +
+    ' ' +
+    (error || help ? 'mb-2 sm:mb-8' : 'mb-8');
   return (
     <>
       <div className='relative flex flex-col w-full'>
@@ -57,10 +59,10 @@ const Input: FC<InputProps> = ({ label, type = 'text', name, placeholder, helper
               {passwordIsVisible ? <IconEyeSlash className='text-slate-400' /> : <IconEye className='text-slate-400' />}
             </button>
           )}
-          <input required={required} name={name} placeholder={placeholder} className={inputStyle} type={inputType} value={value} onChange={handleChange} onBlur={onBlur}></input>
+          <input required={required} name={name} placeholder={placeholder} className={inputStyle} type={inputType} value={value} onChange={handleChange} onBlur={onBlur} />
         </div>
-        {!error && help && <span className='absolute bottom-0 text-sm text-slate-400 mb-2'>{helperText ? helperText : ''}</span>}
-        {error && <span className='absolute bottom-0 text-sm text-red-500 dark:text-red-400 mb-2'>{errorText ? errorText : 'Compruebe el campo'}</span>}
+        {!error && help && <span className='sm:absolute sm:bottom-0 text-sm text-slate-400 mb-6 sm:mb-2'>{helperText ? helperText : ''}</span>}
+        {error && <span className='sm:absolute sm:bottom-0 text-sm text-red-500 dark:text-red-400 mb-6 sm:mb-2'>{errorText ? errorText : 'Compruebe el campo'}</span>}
       </div>
     </>
   );

@@ -12,10 +12,10 @@ const Tag: FC<TagProps> = ({ text, onClose }) => {
   };
   return (
     <>
-      <div className='inline-flex gap-1 p-y-auto bg-slate-200 text-slate-500 dark:bg-cyan-900 dark:text-cyan-400 font-medium text-sm rounded-full pl-4 pr-2 py-1 w-auto hover:bg-slate-300 duration-100 hover:cursor-pointer'>
+      <div className='h-9 sm:h-auto inline-flex items-center gap-1 p-y-auto bg-slate-200 text-slate-500 dark:bg-cyan-900 dark:text-cyan-400 font-medium text-sm rounded-full pl-4 pr-2 py-1 w-auto hover:bg-slate-300 duration-100 hover:cursor-pointer'>
         <span className='mb-[1px]'>{text}</span>
         <button onClick={handleClick}>
-          <IconClose className='w-4 h-4 opacity-40 hover:opacity-100' />
+          <IconClose className='w-5 sm:w-4 h-5 sm:h-4 opacity-40 hover:opacity-100' />
         </button>
       </div>
     </>

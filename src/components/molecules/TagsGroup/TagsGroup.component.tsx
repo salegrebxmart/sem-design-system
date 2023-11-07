@@ -13,7 +13,7 @@ const TagsGroup: FC<TagsGroupProps> = ({ values, className }) => {
     setTags(currentTags);
   };
   return (
-    <div className={'flex gap-2 flex-wrap bg-slate-100 dark:bg-slate-900 p-4 rounded-3xl' + ' ' + className}>
+    <div className={'flex gap-2 flex-wrap bg-slate-100 dark:bg-slate-900/50 p-4 rounded-3xl' + ' ' + className}>
       {tags.map((item, index) => (
         <Tag key={index} text={item} onClose={() => handleEraseTag(index)} />
       ))}

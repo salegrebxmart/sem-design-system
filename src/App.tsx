@@ -1,6 +1,6 @@
 import './App.css';
 import ThemeButton from './components/atoms/ThemeButton';
-import { Buttons, Cards, Inputs } from './pages';
+import { Buttons, Cards, FormElements } from './pages';
 
 function App() {
   return (
@@ -11,9 +11,9 @@ function App() {
             <h1 className='text-lg text-slate-500 dark:text-slate-300 font-medium'>SEM Components</h1>
             <ThemeButton />
           </header>
-          {/* <Buttons /> */}
-          {/* <Cards /> */}
-          <Inputs />
+          {/* <Buttons />
+          <Cards /> */}
+          <FormElements />
         </div>
       </main>
     </>
