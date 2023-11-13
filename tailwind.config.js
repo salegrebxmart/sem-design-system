@@ -8,7 +8,12 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Barlow', 'sans-serif']
-    }
+    },
+    fontWeight: {
+      normal: 300,
+      medium: 500,
+      bold: 700,
+    },
   },
   plugins: [],
 }
